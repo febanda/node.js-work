@@ -1,9 +1,10 @@
+var http = require("http");
 var fs = require("fs");
 
-//remove a file
-// fs.unlink("readMe.txt", () => {});
+var myReadStream = fs.createReadStream(__dirname + "/readMe.txt");
+var myWriteStream = fs.createWriteStream(__dirname + "/writeMe.txt");
 
-//create a directory sync
-// fs.mkdirSync("stuff");
-//delete a directory sync
-// fs.rmdirSync("stuff");
+myReadStream.on("data", function(chunk) {
+  console.log("new chunk received");
+  myWriteStream.write(chunk);
+});
