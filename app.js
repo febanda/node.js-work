@@ -1,5 +1,9 @@
 var fs = require("fs");
 
-fs.readFile("readMe.txt", "utf8", function(err, data) {
-  fs.writeFile("writeMe.txt", data);
-});
+//remove a file
+// fs.unlink("readMe.txt", () => {});
+
+//create a directory sync
+// fs.mkdirSync("stuff");
+//delete a directory sync
+// fs.rmdirSync("stuff");
